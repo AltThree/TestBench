@@ -1,7 +1,7 @@
 {
     "name": "alt-three/testbench",
-    "description": "Provides Some Testing Traits For Alt Three Applications",
-    "keywords": ["testbench", "application", "TestBench", "Alt Three"],
+    "description": "Provides Some Testing Traits For Apps",
+    "keywords": ["testbench", "app", "TestBench", "Alt Three"],
     "license": "MIT",
     "authors": [
         {

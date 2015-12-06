@@ -1,6 +1,6 @@
 # Alt Three TestBench
 
-Provides some testing traits for Alt Three Applications.
+Provides some testing traits for apps.
 
 
 ## Installation
