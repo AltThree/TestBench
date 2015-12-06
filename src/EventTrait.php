@@ -24,6 +24,11 @@ trait EventTrait
 
     abstract protected function getEventInterfaces();
 
+    protected function objectHasHandlers()
+    {
+        return true;
+    }
+
     protected function getEventServiceProvider()
     {
         $split = explode('\\', (new ReflectionClass($this))->getName());
@@ -51,7 +56,14 @@ trait EventTrait
         $mappings = $property->getValue(new $provider($this->app));
 
         $this->assertTrue(isset($mappings[$class]));
-        $this->assertGreaterThan(0, count($mappings[$class]));
+
+        $handlers = count($mappings[$class]);
+
+        if ($this->objectHasHandlers()) {
+            $this->assertGreaterThan(0, $handlers);
+        } else {
+            $this->assertSame(0, $handlers);
+        }
 
         foreach ($mappings[$class] as $handler) {
             $this->assertInstanceOf($handler, $this->app->make($handler));
