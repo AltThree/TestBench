@@ -18,7 +18,7 @@ use Illuminate\Contracts\Bus\Dispatcher;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-trait DisableLoggingTrait
+trait CommandTrait
 {
     use AnemicTrait;
 
