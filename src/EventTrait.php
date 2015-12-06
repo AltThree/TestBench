@@ -26,9 +26,9 @@ trait EventTrait
 
     protected function getEventServiceProvider()
     {
-        $split = explode('/', get_class($this));
+        $split = explode('\\', new ReflectionClass($this)->getName());
 
-        return "{$split[0]}/{$split[1]}/Providers/EventServiceProvider";
+        return "{$split[0]}\\{$split[2]}\\Providers\\EventServiceProvider";
     }
 
     public function testEventImplementsTheCorrectInterfaces()
