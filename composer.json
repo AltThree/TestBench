@@ -24,6 +24,9 @@
     "require-dev": {
         "phpunit/phpunit": "^4.8|^5.0"
     },
+    "suggest": {
+        "laravel/framework": "Enables the use of every trait."
+    },
     "autoload": {
         "psr-4": {
             "AltThree\\TestBench\\": "src/"
