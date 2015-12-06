@@ -26,7 +26,7 @@ trait ServiceProviderTrait
 
     protected function getServiceProviderClass($app)
     {
-        $split = explode('\\', new ReflectionClass($this)->getName());
+        $split = explode('\\', (new ReflectionClass($this))->getName());
         $class = substr(end($split), 0, -4);
 
         return "{$split[0]}\\{$split[2]}\\Providers\\{$class}}";
