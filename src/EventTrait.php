@@ -22,12 +22,7 @@ trait EventTrait
 {
     use AnemicTrait;
 
-    protected function getEventInterfaces()
-    {
-        $split = explode('/', get_class($this));
-
-        return ["{$split[0]}/{$split[1]}/Events\EventInterface"];
-    }
+    abstract protected function getEventInterfaces();
 
     protected function getEventServiceProvider()
     {
