@@ -29,6 +29,6 @@ trait ServiceProviderTrait
         $split = explode('\\', (new ReflectionClass($this))->getName());
         $class = substr(end($split), 0, -4);
 
-        return "{$split[0]}\\{$split[2]}\\Providers\\{$class}";
+        return "{$split[0]}\\{$split[2]}\\Foundation\\Providers\\{$class}";
     }
 }

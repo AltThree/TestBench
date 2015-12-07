@@ -33,7 +33,7 @@ trait EventTrait
     {
         $split = explode('\\', (new ReflectionClass($this))->getName());
 
-        return "{$split[0]}\\{$split[2]}\\Providers\\EventServiceProvider";
+        return "{$split[0]}\\{$split[2]}\\Foundation\\Providers\\EventServiceProvider";
     }
 
     public function testEventImplementsTheCorrectInterfaces()
