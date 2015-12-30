@@ -30,6 +30,11 @@ trait AnemicTrait
         return false;
     }
 
+    protected function objectHasThrottle()
+    {
+        return false;
+    }
+
     public function testClassIsFinal()
     {
         $rc = new ReflectionClass($this->getObjectAndParams()['object']);
@@ -55,6 +60,10 @@ trait AnemicTrait
 
         if ($this->objectHasRules()) {
             $params[] = 'rules';
+        }
+
+        if ($this->objectHasThrottle()) {
+            $params[] = 'throttle';
         }
 
         $this->assertSame($properties, $params);
