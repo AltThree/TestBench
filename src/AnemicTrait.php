@@ -12,6 +12,8 @@
 namespace AltThree\TestBench;
 
 use ReflectionClass;
+use ReflectionParameter;
+use ReflectionProperty;
 
 /**
  * This is the anemic trait.
@@ -46,11 +48,11 @@ trait AnemicTrait
     {
         $rc = new ReflectionClass($this->getObjectAndParams()['object']);
 
-        $properties = array_map(function ($property) {
+        $properties = array_map(function (ReflectionProperty $property) {
             return $property->getName();
         }, $rc->getProperties());
 
-        $params = array_map(function ($param) {
+        $params = array_map(function (ReflectionParameter $param) {
             return $param->getName();
         }, $rc->getMethod('__construct')->getParameters());
 
