@@ -27,6 +27,6 @@ trait JobTrait
     {
         $rc = new ReflectionClass($this->getObjectAndParams()['object']);
 
-        $this->assertSame([SerializesModels::class], $rc->getTraitNames());
+        $this->assertTrue(in_array(SerializesModels::class, $rc->getTraitNames(), true));
     }
 }
