@@ -21,7 +21,7 @@ use ReflectionClass;
  */
 trait JobTrait
 {
-    use AnemicTrait;
+    use CommandTrait;
 
     public function testJobSerializesModels()
     {
