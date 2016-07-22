@@ -11,6 +11,8 @@
 
 namespace AltThree\TestBench;
 
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 use ReflectionClass;
 
 /**
@@ -24,11 +26,19 @@ trait ExistenceTrait
     {
         $source = $this->getSourceNamespace();
         $tests = $this->getTestNamespace();
+        $path = $this->getSourcePath();
+        $len = strlen($path);
 
-        foreach (scandir($this->getSourcePath()) as $file) {
-            $class = strtok($file, '.')
-            $this->assertTrue(class_exists("{$source}\{$class}"));
-            $this->assertTrue(class_exists("{$tests}\{$class}Test"));
+        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
+
+        foreach ($files as $file) {
+            if ($file->isDir()) { 
+                continue;
+            }
+
+            $name = str_replace('/', '\\', strtok(substr($file->getPathname(), $len), '.'));
+            $this->assertTrue(class_exists("{$source}{$name}"));
+            $this->assertTrue(class_exists("{$tests}{$name}Test"));
         }
     }
 
