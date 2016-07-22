@@ -11,6 +11,7 @@
 
 namespace AltThree\TestBench;
 
+use CallbackFilterIterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use ReflectionClass;
@@ -22,25 +23,30 @@ use ReflectionClass;
  */
 trait ExistenceTrait
 {
-    public function testExistence()
+    /**
+     * @dataProvider provideFilesToCheck
+     */
+    public function testExistence($class, $test)
+    {
+        $this->assertTrue(class_exists($class), "Expected the class {$class} to exist.");
+        $this->assertTrue(class_exists($test), "Expected there to be tests for {$class}.");
+    }
+
+    public function provideFilesToCheck()
     {
         $source = $this->getSourceNamespace();
         $tests = $this->getTestNamespace();
         $path = $this->getSourcePath();
         $len = strlen($path);
 
-        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
+        $files = new CallbackFilterIterator(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path)), function ($file) {
+            return $file->getFilename()[0] !== '.' && !$file->isDir();
+        });
 
-        foreach ($files as $file) {
-            if ($file->getFilename()[0] === '.' || $file->isDir()) {
-                continue;
-            }
-
+        return array_map(function ($file) use ($len, $source, $tests) {
             $name = str_replace('/', '\\', strtok(substr($file->getPathname(), $len), '.'));
-
-            $this->assertTrue(class_exists("{$source}{$name}"));
-            $this->assertTrue(class_exists("{$tests}{$name}Test"));
-        }
+            return ["{$source}{$name}", "{$tests}{$name}Test"];
+        }, iterator_to_array($files));
     }
 
     protected function getTestNamespace()
