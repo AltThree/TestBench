@@ -28,8 +28,14 @@ trait ExistenceTrait
      */
     public function testExistence($class, $test)
     {
-        $this->assertTrue(class_exists($class), "Expected the class {$class} to exist.");
-        $this->assertTrue(class_exists($test), "Expected there to be tests for {$class}.");
+        if ($interface = interface_exists($class)) {
+            $this->assertTrue($interface, "Expected the interface {$class} to exist.");
+        } elseif ($trait = trait_exists($class)) {
+            $this->assertTrue($trait, "Expected the trait {$class} to exist.");
+        } else {
+            $this->assertTrue(class_exists($class), "Expected the class {$class} to exist.");
+            $this->assertTrue(class_exists($test), "Expected there to be tests for {$class}.");
+        }
     }
 
     public function provideFilesToCheck()
