@@ -32,7 +32,7 @@ trait ExistenceTrait
         $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
 
         foreach ($files as $file) {
-            if ($file->isDir()) { 
+            if ($file->isDir()) {
                 continue;
             }
 
