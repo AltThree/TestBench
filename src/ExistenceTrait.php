@@ -32,11 +32,12 @@ trait ExistenceTrait
         $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
 
         foreach ($files as $file) {
-            if ($file->isDir()) {
+            if ($file->getFilename()[0] === '.' || $file->isDir()) {
                 continue;
             }
 
             $name = str_replace('/', '\\', strtok(substr($file->getPathname(), $len), '.'));
+
             $this->assertTrue(class_exists("{$source}{$name}"));
             $this->assertTrue(class_exists("{$tests}{$name}Test"));
         }
@@ -49,6 +50,6 @@ trait ExistenceTrait
 
     protected function getSourceNamespace()
     {
-        return str_replace($this->getTestNamespace(), '\\Tests\\', '\\');
+        return str_replace('\\Tests\\', '\\', $this->getTestNamespace());
     }
 }
