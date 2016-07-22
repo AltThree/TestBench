@@ -45,6 +45,7 @@ trait ExistenceTrait
 
         return array_map(function ($file) use ($len, $source, $tests) {
             $name = str_replace('/', '\\', strtok(substr($file->getPathname(), $len), '.'));
+
             return ["{$source}{$name}", "{$tests}{$name}Test"];
         }, iterator_to_array($files));
     }
