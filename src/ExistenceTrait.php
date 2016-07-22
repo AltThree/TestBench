@@ -49,6 +49,6 @@ trait ExistenceTrait
 
     protected function getSourceNamespace()
     {
-        return str_replace($this->getTestNamespace(), '\\Tests\\', '\\')
+        return str_replace($this->getTestNamespace(), '\\Tests\\', '\\');
     }
 }
