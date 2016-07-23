@@ -64,6 +64,7 @@ class ClassInspectorTest extends TestCase
 
         $this->assertSame([
             'ReflectionClass',
+            'ReflectionException',
             'ReflectionParameter',
             'ReflectionProperty',
         ], $inspector->references());
