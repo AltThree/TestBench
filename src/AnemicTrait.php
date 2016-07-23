@@ -12,6 +12,7 @@
 namespace AltThree\TestBench;
 
 use ReflectionClass;
+use ReflectionException;
 use ReflectionParameter;
 use ReflectionProperty;
 
@@ -52,9 +53,13 @@ trait AnemicTrait
             return $property->getName();
         }, $rc->getProperties());
 
-        $params = array_map(function (ReflectionParameter $param) {
-            return $param->getName();
-        }, $rc->getMethod('__construct')->getParameters());
+        try {
+            $params = array_map(function (ReflectionParameter $param) {
+                return $param->getName();
+            }, $rc->getMethod('__construct')->getParameters());
+        } catch (ReflectionException $e) {
+            $params = [];
+        }
 
         if ($this->objectHasQueue()) {
             $params[] = 'queue';
