@@ -32,8 +32,8 @@ class ClassInspectorTest extends TestCase
         $this->assertSame([
             'AltThree\TestBench\Analysis\ClassInspector',
             'AltThree\TestBench\AnemicTrait',
-            'PHPUnit_Framework_TestCase',
             'PhpParser\NodeTraverserInterface',
+            'PHPUnit_Framework_TestCase',
         ], $inspector->references());
     }
 
@@ -79,5 +79,7 @@ class ClassInspectorTest extends TestCase
         $this->assertFalse($inspector->isInterface());
         $this->assertFalse($inspector->isTrait());
         $this->assertFalse($inspector->exists());
+
+        $this->assertSame([], $inspector->references());
     }
 }
