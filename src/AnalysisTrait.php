@@ -30,6 +30,8 @@ trait AnalysisTrait
      */
     public function testReferences($file)
     {
+        $this->assertTrue(file_exists($file), "Expected {$file} to exist.");
+
         foreach ((new ReferenceAnalyzer())->analyze($file) as $class) {
             $this->assertTrue(ClassInspector::inspect($class)->exists(), "Expected {$class} to exist.");
         }
