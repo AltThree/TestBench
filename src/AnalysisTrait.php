@@ -17,7 +17,6 @@ use AppendIterator;
 use CallbackFilterIterator;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use ReflectionClass;
 
 /**
  * This is the analysis trait.
