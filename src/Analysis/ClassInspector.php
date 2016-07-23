@@ -11,7 +11,6 @@
 
 namespace AltThree\TestBench\Analysis;
 
-use InvalidArugmentException;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\ParserFactory;
@@ -118,7 +117,7 @@ class ClassInspector
      */
     public function references()
     {
-        $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
+        $parser = (new ParserFactory())->create(ParserFactory::PREFER_PHP7);
 
         $traverser = new NodeTraverser();
         $traverser->addVisitor(new NameResolver());
