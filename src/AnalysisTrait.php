@@ -47,6 +47,8 @@ trait AnalysisTrait
             return $file->getFilename()[0] !== '.' && !$file->isDir();
         });
 
-        return iterator_to_array($files);
+        return array_map(function ($file) {
+            return [$file];
+        }, iterator_to_array($files));
     }
 }
