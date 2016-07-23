@@ -12,8 +12,8 @@
 namespace AltThree\TestBench\Analysis;
 
 use PhpParser\Node;
-use PhpParser\NodeVisitorAbstract;
 use PhpParser\Node\Stmt\UseUse;
+use PhpParser\NodeVisitorAbstract;
 
 /**
  * This is the import visitor class.

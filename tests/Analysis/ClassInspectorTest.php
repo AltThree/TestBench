@@ -13,8 +13,8 @@ namespace AltThree\Tests\TestBench\Analysis;
 
 use AltThree\TestBench\Analysis\ClassInspector;
 use AltThree\TestBench\AnemicTrait;
-use PHPUnit_Framework_TestCase as TestCase;
 use PhpParser\NodeTraverserInterface;
+use PHPUnit_Framework_TestCase as TestCase;
 
 class ClassInspectorTest extends TestCase
 {
