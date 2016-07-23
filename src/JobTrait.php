@@ -25,8 +25,14 @@ trait JobTrait
 
     public function testJobSerializesModels()
     {
-        $rc = new ReflectionClass($this->getObjectAndParams()['object']);
+        $data = $this->getObjectAndParams();
 
-        $this->assertTrue(in_array(SerializesModels::class, $rc->getTraitNames(), true));
+        $rc = new ReflectionClass($data['object']);
+
+        if ($data['params']) {
+            $this->assertTrue(in_array(SerializesModels::class, $rc->getTraitNames(), true));
+        } else {
+            $this->assertFalse(in_array(SerializesModels::class, $rc->getTraitNames(), true));
+        }
     }
 }
