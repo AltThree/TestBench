@@ -1,0 +1,57 @@
+<?php
+
+/*
+ * This file is part of Alt Three TestBench.
+ *
+ * (c) Alt Three Services Limited
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace AltThree\TestBench\Analysis;
+
+use PhpParser\Node;
+use PhpParser\NodeVisitorAbstract;
+use PhpParser\Node\Stmt\UseUse;
+
+/**
+ * This is the import visitor class.
+ *
+ * @author Graham Campbell <graham@alt-three.com>
+ */
+class ImportVisitor extends NodeVisitorAbstract
+{
+    /**
+     * The recorded imports.
+     *
+     * @var string[]
+     */
+    protected $imports = [];
+
+    /**
+     * Enter the node and record the import.
+     *
+     * @param \PhpParser\Node $node
+     *
+     * @return \PhpParser\Node
+     */
+    public function enterNode(Node $node)
+    {
+        if ($node instanceof UseUse) {
+            $this->imports[] = $node->name->toString();
+        }
+
+        return $node;
+    }
+
+    /**
+     * Get the recorded imports.
+     *
+     * @return string[]
+     */
+    public function getImports()
+    {
+        return $this->imports;
+    }
+}
