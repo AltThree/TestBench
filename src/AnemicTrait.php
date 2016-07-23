@@ -75,7 +75,11 @@ trait AnemicTrait
     {
         $rc = new ReflectionClass($this->getObjectAndParams()['object']);
 
-        foreach ($rc->getProperties() as $property) {
+        $props = $rc->getProperties();
+
+        $this->assertInternalType('array', $props);
+
+        foreach ($props as $property) {
             $this->assertTrue($property->isPublic());
             $this->assertFalse($property->isStatic());
         }
@@ -84,6 +88,8 @@ trait AnemicTrait
     public function testPropertyAccessBehavesCorrectly()
     {
         extract($this->getObjectAndParams());
+
+        $this->assertInternalType('array', $params);
 
         foreach ($params as $key => $value) {
             $this->assertSame($value, $object->{$key});
