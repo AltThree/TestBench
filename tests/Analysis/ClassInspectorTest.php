@@ -27,7 +27,6 @@ class ClassInspectorTest extends TestCase
         $this->assertTrue($inspector->isClass());
         $this->assertFalse($inspector->isInterface());
         $this->assertFalse($inspector->isTrait());
-        $this->assertTrue($inspector->isValidTypehint());
         $this->assertTrue($inspector->exists());
 
         $this->assertSame([
@@ -47,7 +46,6 @@ class ClassInspectorTest extends TestCase
         $this->assertFalse($inspector->isClass());
         $this->assertTrue($inspector->isInterface());
         $this->assertFalse($inspector->isTrait());
-        $this->assertTrue($inspector->isValidTypehint());
         $this->assertTrue($inspector->exists());
 
         $this->assertSame(['PhpParser\NodeVisitor'], $inspector->references());
@@ -62,7 +60,6 @@ class ClassInspectorTest extends TestCase
         $this->assertFalse($inspector->isClass());
         $this->assertFalse($inspector->isInterface());
         $this->assertTrue($inspector->isTrait());
-        $this->assertFalse($inspector->isValidTypehint());
         $this->assertTrue($inspector->exists());
 
         $this->assertSame([
@@ -81,7 +78,6 @@ class ClassInspectorTest extends TestCase
         $this->assertFalse($inspector->isClass());
         $this->assertFalse($inspector->isInterface());
         $this->assertFalse($inspector->isTrait());
-        $this->assertFalse($inspector->isValidTypehint());
         $this->assertFalse($inspector->exists());
     }
 }
