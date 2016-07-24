@@ -38,6 +38,22 @@ trait AnemicTrait
         return false;
     }
 
+    /**
+     * @before
+     */
+    public function setEventExpectations()
+    {
+        $this->expectsEvents([]);
+    }
+
+    /**
+     * @before
+     */
+    public function setJobExpectations()
+    {
+        $this->expectsJobs([]);
+    }
+
     public function testClassIsFinal()
     {
         $rc = new ReflectionClass($this->getObjectAndParams()['object']);
