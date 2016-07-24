@@ -24,6 +24,8 @@ use ReflectionClass;
  */
 trait ExistenceTrait
 {
+    abstract protected function getSourcePath();
+
     /**
      * @dataProvider provideFilesToCheck
      */
@@ -56,13 +58,13 @@ trait ExistenceTrait
         }, iterator_to_array($files));
     }
 
-    protected function getTestNamespace()
-    {
-        return (new ReflectionClass($this))->getNamespaceName();
-    }
-
     protected function getSourceNamespace()
     {
         return str_replace('\\Tests\\', '\\', $this->getTestNamespace());
+    }
+
+    protected function getTestNamespace()
+    {
+        return (new ReflectionClass($this))->getNamespaceName();
     }
 }

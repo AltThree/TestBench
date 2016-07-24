@@ -25,6 +25,8 @@ use RecursiveIteratorIterator;
  */
 trait AnalysisTrait
 {
+    abstract protected function getPaths();
+
     /**
      * @dataProvider provideFilesToCheck
      */
