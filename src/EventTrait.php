@@ -22,6 +22,14 @@ trait EventTrait
 {
     use AnemicTrait;
 
+    /**
+     * @before
+     */
+    public function setJobExpectations()
+    {
+        $this->onlyExpectsJobs([]);
+    }
+
     abstract protected function getEventInterfaces();
 
     protected function objectHasHandlers()

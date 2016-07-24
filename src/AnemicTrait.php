@@ -25,14 +25,6 @@ trait AnemicTrait
 {
     use ExpectsTrait;
 
-    /**
-     * @before
-     */
-    public function setJobExpectations()
-    {
-        $this->onlyExpectsJobs([]);
-    }
-
     protected function objectHasQueue()
     {
         return false;
