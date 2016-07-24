@@ -61,7 +61,8 @@ trait ExpectsTrait
      *
      * These jobs will be mocked, so that handlers will not actually be executed.
      *
-     * @param  array|string  $jobs
+     * @param array|string $jobs
+     *
      * @return $this
      */
     protected function onlyExpectsJobs($jobs)
