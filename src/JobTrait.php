@@ -23,6 +23,14 @@ trait JobTrait
 {
     use CommandTrait;
 
+    /**
+     * @before
+     */
+    public function setEventExpectations()
+    {
+        $this->expectsEvents([]);
+    }
+
     public function testJobSerializesModels()
     {
         $data = $this->getObjectAndParams();
