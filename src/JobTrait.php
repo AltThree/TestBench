@@ -36,10 +36,11 @@ trait JobTrait
      *
      * These events will be mocked, so that handlers will not actually be executed.
      *
-     * @param  array|string  $events
-     * @return $this
+     * @param array|string $events
      *
      * @throws \Exception
+     *
+     * @return $this
      */
     public function expectsOnlyEvents($events)
     {
