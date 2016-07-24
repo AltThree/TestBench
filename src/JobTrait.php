@@ -23,49 +23,6 @@ trait JobTrait
 {
     use CommandTrait;
 
-    /**
-     * @before
-     */
-    public function setEventExpectations()
-    {
-        $this->expectsOnlyEvents([]);
-    }
-
-    /**
-     * Specify a list of events that should be fired for the given operation.
-     *
-     * These events will be mocked, so that handlers will not actually be executed.
-     *
-     * @param  array|string  $events
-     * @return $this
-     *
-     * @throws \Exception
-     */
-    public function expectsOnlyEvents($events)
-    {
-        $events = is_array($events) ? $events : func_get_args();
-
-        $this->withoutEvents();
-
-        $this->beforeApplicationDestroyed(function () use ($events) {
-            $fired = $this->getFiredEvents($events);
-
-            if ($eventsNotFired = array_diff($events, $fired)) {
-                throw new Exception(
-                    'These expected events were not fired: ['.implode(', ', $eventsNotFired).']'
-                );
-            }
-
-            if ($eventsFired = array_diff($fired, $events)) {
-                throw new Exception(
-                    'These unexpected events were fired: ['.implode(', ', $eventsFired).']'
-                );
-            }
-        });
-
-        return $this;
-    }
-
     public function testJobSerializesModels()
     {
         $data = $this->getObjectAndParams();

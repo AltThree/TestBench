@@ -22,6 +22,14 @@ trait CommandTrait
 {
     use AnemicTrait;
 
+    /**
+     * @before
+     */
+    public function setEventExpectations()
+    {
+        $this->onlyExpectsEvents([]);
+    }
+
     public function testHandlerCanBeResolved()
     {
         $command = $this->getObjectAndParams()['object'];
