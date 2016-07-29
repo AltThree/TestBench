@@ -25,7 +25,7 @@ trait AnemicTrait
 {
     use ExpectsTrait, ValidationTrait;
 
-    protected abstract function getObjectAndParams();
+    abstract protected function getObjectAndParams();
 
     protected function objectHasQueue()
     {
