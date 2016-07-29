@@ -23,7 +23,9 @@ use ReflectionProperty;
  */
 trait AnemicTrait
 {
-    use ExpectsTrait;
+    use ExpectsTrait, ValidationTrait;
+
+    protected abstract function getObjectAndParams();
 
     protected function objectHasQueue()
     {
@@ -80,7 +82,8 @@ trait AnemicTrait
 
     public function testPropertiesAreCorrectlyDefined()
     {
-        $rc = new ReflectionClass($this->getObjectAndParams()['object']);
+        $obj = $this->getObjectAndParams()['object'];
+        $rc = new ReflectionClass($obj);
 
         $props = $rc->getProperties();
 
@@ -89,6 +92,10 @@ trait AnemicTrait
         foreach ($props as $property) {
             $this->assertTrue($property->isPublic());
             $this->assertFalse($property->isStatic());
+        }
+
+        if ($this->objectHasRules()) {
+            $this->checkRules($obj);
         }
     }
 
