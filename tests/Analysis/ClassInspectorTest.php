@@ -68,6 +68,7 @@ class ClassInspectorTest extends TestCase
             'ReflectionParameter',
             'ReflectionProperty',
             'AltThree\TestBench\ExpectsTrait',
+            'AltThree\TestBench\ValidationTrait',
         ], $inspector->references());
     }
 
