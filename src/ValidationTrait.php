@@ -11,6 +11,8 @@
 
 namespace AltThree\TestBench;
 
+use Illuminate\Foundation\Application;
+
 /**
  * This is the validation trait.
  *
@@ -51,10 +53,22 @@ trait ValidationTrait
 
         $this->assertTrue(isset($parts[0]));
 
-        $this->assertTrue($parts[0] === 'required' || $parts[0] === 'nullable');
+        if ($this->enforceRequiredOrNullable()) {
+            $this->assertTrue($parts[0] === 'required' || $parts[0] === 'nullable');
+        }
 
         foreach ($parts as $part) {
             $this->assertInternalType('string', $part);
         }
+    }
+
+    /**
+     * Should we require rules to be required or nullable?
+     *
+     * @return bool
+     */
+    protected function enforceRequiredOrNullable()
+    {
+        return version_compare(Application::VERSION, '5.3') === 1;
     }
 }
