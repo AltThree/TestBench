@@ -35,6 +35,12 @@ trait CommandTrait
         $command = $this->getObjectAndParams()['object'];
         $dispatcher = $this->app->make(Dispatcher::class);
 
-        $this->assertInstanceOf($this->getHandlerClass(), $dispatcher->resolveHandler($command));
+        if (method_exists($dispatcher, 'resolveHandler')) {
+            $handler = $dispatcher->resolveHandler($command);
+        } else {
+            $handler = $dispatcher->getCommandHandler($command) ?: $command;
+        }
+
+        $this->assertInstanceOf($this->getHandlerClass(), $handler);
     }
 }
