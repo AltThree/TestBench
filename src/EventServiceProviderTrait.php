@@ -53,7 +53,7 @@ trait EventServiceProviderTrait
         $map = $this->getListenerMap();
 
         foreach (array_keys($map) as $event) {
-             $this->assertTrue(class_exists($event) || interface_exists($event));
+            $this->assertTrue(class_exists($event) || interface_exists($event));
         }
     }
 
