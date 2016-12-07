@@ -58,6 +58,6 @@ class ReferenceAnalyzer
 
         $traverser->traverse($this->parser->parse(file_get_contents($path)));
 
-        return array_unique(array_merge($imports->getImports(), $names->getNames()));
+        return array_values(array_unique(array_merge($imports->getImports(), $names->getNames())));
     }
 }
