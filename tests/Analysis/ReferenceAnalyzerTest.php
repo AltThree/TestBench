@@ -40,9 +40,16 @@ class ReferenceAnalyzerTest extends TestCase
         ], $refs);
     }
 
-    public function testCanGenerateUsingStub()
+    public function testCanGenerateUsingFuncStub()
     {
         $refs = (new ReferenceAnalyzer())->analyze(__DIR__.'/stubs/func.php');
+
+        $this->assertSame([], $refs);
+    }
+
+    public function testCanGenerateUsingBoolStub()
+    {
+        $refs = (new ReferenceAnalyzer())->analyze(__DIR__.'/stubs/bool.php');
 
         $this->assertSame([], $refs);
     }

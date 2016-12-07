@@ -12,6 +12,7 @@
 namespace AltThree\TestBench\Analysis;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\NodeVisitorAbstract;
@@ -39,7 +40,7 @@ class NameVisitor extends NodeVisitorAbstract
      */
     public function enterNode(Node $node)
     {
-        if ($node instanceof FuncCall) {
+        if ($node instanceof ConstFetch || $node instanceof FuncCall) {
             $node->name = null;
         }
 
