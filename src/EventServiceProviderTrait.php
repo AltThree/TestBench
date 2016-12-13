@@ -71,6 +71,20 @@ trait EventServiceProviderTrait
         $this->assertSame($events, array_keys($map));
     }
 
+    /**
+     * @depends testListenerMapIsAnArray
+     */
+    public function testListenerMapHandlersExist()
+    {
+        $map = $this->getListenerMap();
+
+        foreach ($map as $handlers) {
+            foreach ($handlers as $handler) {
+                $this->assertTrue(class_exists($handler));
+            }
+        }
+    }
+
     protected function getListenerMap()
     {
         $class = $this->getServiceProviderClass($this->app);
