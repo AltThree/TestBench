@@ -5,32 +5,20 @@ sudo: false
 matrix:
   include:
     - php: 7.0
-      env: LARAVEL_VERSION=5.1.*
+      PARSER_VERSION=^2.0
     - php: 7.0
-      env: LARAVEL_VERSION=5.2.*
-    - php: 7.0
-      env: LARAVEL_VERSION=5.3.*
-    - php: 7.0
-      env: LARAVEL_VERSION=5.4.*
+      PARSER_VERSION=^3.0
     - php: 7.1
-      env: LARAVEL_VERSION=5.1.*
+      PARSER_VERSION=^2.0
     - php: 7.1
-      env: LARAVEL_VERSION=5.2.*
-    - php: 7.1
-      env: LARAVEL_VERSION=5.3.*
-    - php: 7.1
-      env: LARAVEL_VERSION=5.4.*
+      PARSER_VERSION=^3.0
     - php: 7.2
-      env: LARAVEL_VERSION=5.1.*
+      PARSER_VERSION=^2.0
     - php: 7.2
-      env: LARAVEL_VERSION=5.2.*
-    - php: 7.2
-      env: LARAVEL_VERSION=5.3.*
-    - php: 7.2
-      env: LARAVEL_VERSION=5.4.*
+      PARSER_VERSION=^3.0
 
 install:
-  - composer require "laravel/framework:${LARAVEL_VERSION}" --no-update -n
+  - composer require "nikic/php-parser:${PARSER_VERSION}" --no-update -n
   - travis_retry composer install --no-suggest --prefer-dist -n -o
 
 script:
