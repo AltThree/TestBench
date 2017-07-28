@@ -22,7 +22,7 @@
         "graham-campbell/testbench-core": "^2.0"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^1.0",
+        "graham-campbell/analyzer": "^1.1",
         "phpunit/phpunit": "^6.0"
     },
     "suggest": {
