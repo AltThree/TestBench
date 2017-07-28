@@ -22,7 +22,7 @@
         "graham-campbell/testbench-core": "^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.0",
+        "phpunit/phpunit": "^6.0",
         "nikic/php-parser": "^2.0|^3.0"
     },
     "suggest": {

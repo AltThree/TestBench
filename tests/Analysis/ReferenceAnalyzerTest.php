@@ -12,7 +12,7 @@
 namespace AltThree\Tests\TestBench\Analysis;
 
 use AltThree\TestBench\Analysis\ReferenceAnalyzer;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ReferenceAnalyzerTest extends TestCase
 {
