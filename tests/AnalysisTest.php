@@ -14,6 +14,10 @@ declare(strict_types=1);
 namespace AltThree\Tests\TestBench;
 
 use GrahamCampbell\Analyzer\AnalysisTrait;
+use Illuminate\Contracts\Bus\Dispatcher;
+use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider;
+use Illuminate\Queue\SerializesModels;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -35,6 +39,21 @@ class AnalysisTest extends TestCase
         return [
             realpath(__DIR__.'/../src'),
             realpath(__DIR__),
+        ];
+    }
+
+    /**
+     * Get the classes to ignore not existing.
+     *
+     * @return string[]
+     */
+    protected function getIgnored()
+    {
+        return [
+            Application::class,
+            Dispatcher::class,
+            EventServiceProvider::class,
+            SerializesModels::class,
         ];
     }
 }

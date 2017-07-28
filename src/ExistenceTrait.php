@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace AltThree\TestBench;
 
-use AltThree\TestBench\Analysis\ClassInspector;
 use CallbackFilterIterator;
+use GrahamCampbell\Analyzer\ClassInspector;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use ReflectionClass;

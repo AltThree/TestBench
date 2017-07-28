@@ -26,8 +26,8 @@
         "phpunit/phpunit": "^6.0"
     },
     "suggest": {
-        "laravel/framework": "Enables the use of every trait.",
-        "nikic/php-parser": "Enables the use of the static analyzer."
+        "graham-campbell/analyzer": "Enables the use of the existence trait.",
+        "laravel/framework": "Enables the use of most traits."
     },
     "autoload": {
         "psr-4": {
