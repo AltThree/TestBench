@@ -30,7 +30,7 @@ trait AnalysisTrait
     /**
      * @dataProvider provideFilesToCheck
      */
-    public function testReferences($file)
+    public function testReferences(string $file)
     {
         $this->assertTrue(file_exists($file), "Expected {$file} to exist.");
 

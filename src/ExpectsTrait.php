@@ -25,7 +25,7 @@ trait ExpectsTrait
      *
      * These events will be mocked, so that handlers will not actually be executed.
      *
-     * @param array|string $events
+     * @param string[]|string $events
      *
      * @throws \Exception
      *
@@ -61,7 +61,7 @@ trait ExpectsTrait
      *
      * These jobs will be mocked, so that handlers will not actually be executed.
      *
-     * @param array|string $jobs
+     * @param string[]|string $jobs
      *
      * @return $this
      */

@@ -37,10 +37,10 @@ class ClassInspector
      *
      * @return static
      */
-    public static function inspect($class)
+    public static function inspect(string $class)
     {
-        if (!$class || !is_string($class)) {
-            throw new InvalidArgumentException('The class name must be a non-empty string.');
+        if (!$class) {
+            throw new InvalidArgumentException('The class name must be non-empty.');
         }
 
         return new static($class);
@@ -53,7 +53,7 @@ class ClassInspector
      *
      * @return void
      */
-    protected function __construct($class)
+    protected function __construct(string $class)
     {
         $this->class = $class;
     }

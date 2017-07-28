@@ -41,7 +41,7 @@ trait ValidationTrait
     /**
      * Check the given validation rule is valid.
      *
-     * @param array|string $rule
+     * @param string[]|string $rule
      *
      * @return void
      */

@@ -48,7 +48,7 @@ class ReferenceAnalyzer
      *
      * @return string[]
      */
-    public function analyze($path)
+    public function analyze(string $path)
     {
         $traverser = new NodeTraverser();
 
