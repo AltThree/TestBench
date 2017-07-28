@@ -33,7 +33,7 @@ class ClassInspectorTest extends TestCase
             'AltThree\TestBench\Analysis\ClassInspector',
             'AltThree\TestBench\AnemicTrait',
             'PhpParser\NodeTraverserInterface',
-            'PHPUnit_Framework_TestCase',
+            'PHPUnit\Framework\TestCase',
         ], $inspector->references());
     }
 

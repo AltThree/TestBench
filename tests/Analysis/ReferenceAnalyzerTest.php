@@ -22,7 +22,7 @@ class ReferenceAnalyzerTest extends TestCase
 
         $this->assertSame([
             'AltThree\TestBench\Analysis\ReferenceAnalyzer',
-            'PHPUnit_Framework_TestCase',
+            'PHPUnit\Framework\TestCase',
         ], $refs);
     }
 
