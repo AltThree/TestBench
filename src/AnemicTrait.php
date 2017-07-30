@@ -29,6 +29,11 @@ trait AnemicTrait
 
     abstract protected function getObjectAndParams();
 
+    protected function objectHasDelay()
+    {
+        return false;
+    }
+
     protected function objectHasQueue()
     {
         return false;
@@ -40,11 +45,6 @@ trait AnemicTrait
     }
 
     protected function objectHasThrottle()
-    {
-        return false;
-    }
-
-    protected function objectHasDelay()
     {
         return false;
     }
@@ -72,6 +72,10 @@ trait AnemicTrait
             $params = [];
         }
 
+        if ($this->objectHasDelay()) {
+            $params[] = 'delay';
+        }
+
         if ($this->objectHasQueue()) {
             $params[] = 'queue';
         }
@@ -82,10 +86,6 @@ trait AnemicTrait
 
         if ($this->objectHasThrottle()) {
             $params[] = 'throttle';
-        }
-
-        if ($this->objectHasDelay()) {
-            $params[] = 'delay';
         }
 
         $this->assertSame($properties, $params);
