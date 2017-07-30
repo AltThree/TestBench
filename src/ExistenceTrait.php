@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace AltThree\TestBench;
 
 use CallbackFilterIterator;
-use GrahamCampbell\Analyzer\ClassInspector;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use ReflectionClass;
@@ -33,11 +32,9 @@ trait ExistenceTrait
      */
     public function testExistence($class, $test)
     {
-        $inspector = ClassInspector::inspect($class);
+        $this->assertTrue(class_exists($class) || interface_exists($class) || trait_exists($class), "Expected {$class} to exist.");
 
-        $this->assertTrue($inspector->exists(), "Expected {$class} to exist.");
-
-        if ($inspector->isClass()) {
+        if (class_exists($class)) {
             $this->assertTrue(class_exists($test), "Expected there to be tests for {$class}.");
         }
     }

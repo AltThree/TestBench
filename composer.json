@@ -26,7 +26,6 @@
         "phpunit/phpunit": "^6.0"
     },
     "suggest": {
-        "graham-campbell/analyzer": "Enables the use of the existence trait.",
         "laravel/framework": "Enables the use of most traits."
     },
     "autoload": {
