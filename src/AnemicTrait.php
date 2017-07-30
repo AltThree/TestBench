@@ -44,6 +44,11 @@ trait AnemicTrait
         return false;
     }
 
+    protected function objectHasDelay()
+    {
+        return false;
+    }
+
     public function testClassIsFinal()
     {
         $rc = new ReflectionClass($this->getObjectAndParams()['object']);
@@ -77,6 +82,10 @@ trait AnemicTrait
 
         if ($this->objectHasThrottle()) {
             $params[] = 'throttle';
+        }
+
+        if ($this->objectHasDelay()) {
+            $params[] = 'delay';
         }
 
         $this->assertSame($properties, $params);
