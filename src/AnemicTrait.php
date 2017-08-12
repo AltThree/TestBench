@@ -29,6 +29,11 @@ trait AnemicTrait
 
     abstract protected function getObjectAndParams();
 
+    protected function setFrameworkExpectations()
+    {
+        //
+    }
+
     protected function objectHasDelay()
     {
         return false;
@@ -51,6 +56,8 @@ trait AnemicTrait
 
     public function testClassIsFinal()
     {
+        $this->setFrameworkExpectations();
+
         $rc = new ReflectionClass($this->getObjectAndParams()['object']);
 
         $this->assertTrue($rc->isFinal());
@@ -58,6 +65,8 @@ trait AnemicTrait
 
     public function testPropertiesMatchTheConstructor()
     {
+        $this->setFrameworkExpectations();
+
         $rc = new ReflectionClass($this->getObjectAndParams()['object']);
 
         $properties = array_map(function (ReflectionProperty $property) {
@@ -93,6 +102,8 @@ trait AnemicTrait
 
     public function testPropertiesAreCorrectlyDefined()
     {
+        $this->setFrameworkExpectations();
+
         $obj = $this->getObjectAndParams()['object'];
         $rc = new ReflectionClass($obj);
 
@@ -112,6 +123,8 @@ trait AnemicTrait
 
     public function testPropertyAccessBehavesCorrectly()
     {
+        $this->setFrameworkExpectations();
+
         extract($this->getObjectAndParams());
 
         $this->assertInternalType('array', $params);

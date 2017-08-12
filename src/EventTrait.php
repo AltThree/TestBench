@@ -24,15 +24,12 @@ trait EventTrait
 {
     use AnemicTrait;
 
-    /**
-     * @before
-     */
-    public function setJobExpectations()
+    abstract protected function getEventInterfaces();
+
+    protected function setFrameworkExpectations()
     {
         $this->onlyExpectsJobs([]);
     }
-
-    abstract protected function getEventInterfaces();
 
     protected function objectHasHandlers()
     {
@@ -48,6 +45,8 @@ trait EventTrait
 
     public function testEventImplementsTheCorrectInterfaces()
     {
+        $this->setFrameworkExpectations();
+
         $event = $this->getObjectAndParams()['object'];
 
         foreach ($this->getEventInterfaces() as $interface) {
@@ -57,6 +56,8 @@ trait EventTrait
 
     public function testEventHasRegisteredHandlers()
     {
+        $this->setFrameworkExpectations();
+
         $provider = $this->getEventServiceProvider();
 
         $property = (new ReflectionClass($provider))->getProperty('listen');

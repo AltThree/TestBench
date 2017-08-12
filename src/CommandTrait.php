@@ -24,16 +24,15 @@ trait CommandTrait
 {
     use AnemicTrait;
 
-    /**
-     * @before
-     */
-    public function setEventExpectations()
+    protected function setFrameworkExpectations()
     {
         $this->onlyExpectsEvents([]);
     }
 
     public function testHandlerCanBeResolved()
     {
+        $this->setFrameworkExpectations();
+
         $command = $this->getObjectAndParams()['object'];
         $dispatcher = $this->app->make(Dispatcher::class);
 

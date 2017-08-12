@@ -27,6 +27,8 @@ trait JobTrait
 
     public function testJobSerializesModels()
     {
+        $this->setFrameworkExpectations();
+
         $data = $this->getObjectAndParams();
 
         $rc = new ReflectionClass($data['object']);
