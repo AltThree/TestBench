@@ -78,6 +78,11 @@ trait EventTrait
 
         foreach ($mappings[$class] as $handler) {
             $this->assertInstanceOf($handler, $this->app->make($handler));
+            $params = (new ReflectionClass($handler))->getMethod('handle')->getParameters();
+            $this->assertCount(1, $params);
+            $this->assertFalse($params[0]->getType()->allowsNull());
+            $type = (string) $params[0]->getType();
+            $this->assertTrue($class === $type || (new ReflectionClass($class))->isSubclassOf($type));
         }
     }
 }

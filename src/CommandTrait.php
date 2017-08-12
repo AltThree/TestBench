@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace AltThree\TestBench;
 
 use Illuminate\Contracts\Bus\Dispatcher;
+use ReflectionClass;
 
 /**
  * This is the command trait.
@@ -43,5 +44,10 @@ trait CommandTrait
         }
 
         $this->assertInstanceOf($this->getHandlerClass(), $handler);
+
+        $params = (new ReflectionClass($handler))->getMethod('handle')->getParameters();
+        $this->assertCount(1, $params);
+        $this->assertFalse($params[0]->getType()->allowsNull());
+        $this->assertTrue(get_class($command) === (string) $params[0]->getType());
     }
 }
