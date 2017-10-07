@@ -23,7 +23,7 @@
     },
     "require-dev": {
         "graham-campbell/analyzer": "^1.1",
-        "phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "^6.1"
     },
     "suggest": {
         "laravel/framework": "Enables the use of most traits."
