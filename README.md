@@ -5,7 +5,7 @@ Provides some testing traits for apps.
 
 ## Installation
 
-This version requires [PHP](https://php.net) 7, and supports Laravel 5.1, 5.2, 5.3, 5.4, or 5.5.
+This version requires [PHP](https://php.net) 7, and supports [PHPUnit](https://phpunit.de/) 6 or 7 and Laravel 5.1+.
 
 To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
