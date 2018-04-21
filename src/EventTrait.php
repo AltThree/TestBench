@@ -66,23 +66,23 @@ trait EventTrait
         $class = get_class($this->getObjectAndParams()['object']);
         $mappings = $property->getValue(new $provider($this->app));
 
-        $this->assertTrue(isset($mappings[$class]));
+        $this->assertTrue(isset($mappings[$class]), "Expected '{$class}' to exists as a key in the event mappings.");
 
         $handlers = count($mappings[$class]);
 
         if ($this->objectHasHandlers()) {
-            $this->assertGreaterThan(0, $handlers);
+            $this->assertGreaterThan(0, $handlers, "Expected '{$class}' to have at least 1 handler.");
         } else {
-            $this->assertSame(0, $handlers);
+            $this->assertSame(0, $handlers, "Expected '{$class}' to have at exactly 0 handlers.");
         }
 
         foreach ($mappings[$class] as $handler) {
             $this->assertInstanceOf($handler, $this->app->make($handler));
             $params = (new ReflectionClass($handler))->getMethod('handle')->getParameters();
-            $this->assertCount(1, $params);
-            $this->assertFalse($params[0]->getType()->allowsNull());
+            $this->assertCount(1, $params, "Expected '{$handler}::handle' to require exactly 1 argument.");
+            $this->assertFalse($params[0]->getType()->allowsNull(), "Expected '{$handler}::handle' to require non-null arguments.");
             $type = (string) $params[0]->getType();
-            $this->assertTrue($class === $type || (new ReflectionClass($class))->isSubclassOf($type));
+            $this->assertTrue($class === $type || (new ReflectionClass($class))->isSubclassOf($type), "Expected '{$class}' to equal or subtype '{$type}' in '{$handler}::handle'.");
         }
     }
 }
