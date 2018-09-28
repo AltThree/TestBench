@@ -14,7 +14,7 @@
         "graham-campbell/testbench-core": "^3.0"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^2.0",
+        "graham-campbell/analyzer": "^2.1",
         "phpunit/phpunit": "^6.5|^7.0"
     },
     "suggest": {
@@ -35,7 +35,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "4.0-dev"
+            "dev-master": "4.1-dev"
         }
     },
     "minimum-stability": "dev",
