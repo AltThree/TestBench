@@ -1,6 +1,10 @@
 # Alt Three TestBench
 
-Provides some testing traits for apps.
+[![Build Status](https://img.shields.io/travis/AltThree/TestBench/master.svg?style=flat-square)](https://travis-ci.org/AltThree/TestBench)
+[![StyleCI](https://github.styleci.io/repos/47478560/shield?branch=master)](https://github.styleci.io/repos/47478560)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+
+**Provides some testing traits for apps.**
 
 
 ## Installation
