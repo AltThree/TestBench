@@ -2,15 +2,20 @@ dist: xenial
 
 matrix:
   include:
-    - env:
+    - name: PHP 7.0
+      env:
         - PHP_VERSION=7.0
-    - env:
+    - name: PHP 7.1
+      env:
         - PHP_VERSION=7.1
-    - env:
+    - name: PHP 7.2
+      env:
         - PHP_VERSION=7.2
-    - env:
+    - name: PHP 7.3
+      env:
         - PHP_VERSION=7.3
-    - env:
+    - name: PHP 7.4
+      env:
         - PHP_VERSION=7.4
 
 before_install:
