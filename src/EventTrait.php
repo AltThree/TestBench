@@ -81,7 +81,7 @@ trait EventTrait
             $params = (new ReflectionClass($handler))->getMethod('handle')->getParameters();
             $this->assertCount(1, $params, "Expected '{$handler}::handle' to require exactly 1 argument.");
             $this->assertFalse($params[0]->getType()->allowsNull(), "Expected '{$handler}::handle' to require non-null arguments.");
-            $type = (string) $params[0]->getType();
+            $type = $params[0]->getType()->getName();
             $this->assertTrue($class === $type || (new ReflectionClass($class))->isSubclassOf($type), "Expected '{$class}' to equal or subtype '{$type}' in '{$handler}::handle'.");
         }
     }
