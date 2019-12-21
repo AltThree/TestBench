@@ -22,6 +22,8 @@ use Illuminate\Foundation\Application;
  */
 trait ValidationTrait
 {
+    use InternalTypeTrait;
+
     /**
      * Check the rules on the given object are valid.
      *
@@ -33,7 +35,7 @@ trait ValidationTrait
     {
         $this->assertTrue(property_exists($object, 'rules'));
 
-        $this->assertInternalType('array', $object->rules);
+        $this->assertIsArray($object->rules);
 
         foreach ($object->rules as $rule) {
             $this->checkRule($rule);
@@ -60,7 +62,7 @@ trait ValidationTrait
         }
 
         foreach ($parts as $part) {
-            $this->assertInternalType('string', $part);
+            $this->assertIsString($part);
         }
     }
 

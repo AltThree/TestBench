@@ -109,7 +109,7 @@ trait AnemicTrait
 
         $props = $rc->getProperties();
 
-        $this->assertInternalType('array', $props);
+        $this->assertIsArray($props);
 
         foreach ($props as $property) {
             $this->assertTrue($property->isPublic());
@@ -127,7 +127,7 @@ trait AnemicTrait
 
         extract($this->getObjectAndParams());
 
-        $this->assertInternalType('array', $params);
+        $this->assertIsArray($params);
 
         foreach ($params as $key => $value) {
             $this->assertSame($value, $object->{$key});

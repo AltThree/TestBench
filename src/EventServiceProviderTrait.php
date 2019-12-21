@@ -24,7 +24,7 @@ use ReflectionClass;
  */
 trait EventServiceProviderTrait
 {
-    use ServiceProviderTrait;
+    use InternalTypeTrait, ServiceProviderTrait;
 
     public function testIsAnEventServiceProvider()
     {
@@ -43,7 +43,7 @@ trait EventServiceProviderTrait
     {
         $map = $this->getListenerMap();
 
-        $this->assertInternalType('array', $map);
+        $this->assertIsArray($map);
         $this->assertGreaterThan(0, count($map));
     }
 
