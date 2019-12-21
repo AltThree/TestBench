@@ -24,7 +24,7 @@ trait InternalTypeTrait
 {
     public static function assertIsArray($actual, $message = ''): void
     {
-        if (is_callable(Assert::class, 'assertIsArray')) {
+        if (is_callable([Assert::class, 'assertIsArray'])) {
             Assert::assertIsArray($actual, $message);
         } else {
             Assert::assertInternalType('array', $actual, $message);
@@ -33,7 +33,7 @@ trait InternalTypeTrait
 
     public static function assertIsString($actual, $message = ''): void
     {
-        if (is_callable(Assert::class, 'assertIsString')) {
+        if (is_callable([Assert::class, 'assertIsString'])) {
             Assert::assertIsString($actual, $message);
         } else {
             Assert::assertInternalType('string', $actual, $message);
