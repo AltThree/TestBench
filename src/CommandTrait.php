@@ -48,6 +48,8 @@ trait CommandTrait
         $params = (new ReflectionClass($handler))->getMethod('handle')->getParameters();
         $this->assertCount(1, $params);
         $this->assertFalse($params[0]->getType()->allowsNull());
-        $this->assertTrue(get_class($command) === $params[0]->getType()->getName());
+
+        $type = PHP_VERSION_ID >= 70100 ? $params[0]->getType()->getName() : (string) $params[0]->getType();
+        $this->assertSame(get_class($command), $type);
     }
 }
