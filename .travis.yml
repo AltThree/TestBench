@@ -38,6 +38,10 @@ matrix:
       env:
         - PHP_VERSION=7.3
         - PHPUNIT_VERSION=^8.5
+    - name: PHP 7.3; PHPUnit 9
+      env:
+        - PHP_VERSION=7.3
+        - PHPUNIT_VERSION=^9.0
     - name: PHP 7.4; PHPUnit 6
       env:
         - PHP_VERSION=7.4
@@ -50,6 +54,10 @@ matrix:
       env:
         - PHP_VERSION=7.4
         - PHPUNIT_VERSION=^8.5
+    - name: PHP 7.4; PHPUnit 9
+      env:
+        - PHP_VERSION=7.4
+        - PHPUNIT_VERSION=^9.0
 
 before_install:
   - travis_retry docker pull registry.gitlab.com/grahamcampbell/php:$PHP_VERSION
