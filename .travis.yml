@@ -5,18 +5,51 @@ matrix:
     - name: PHP 7.0
       env:
         - PHP_VERSION=7.0
+        - PHPUNIT_VERSION=^6.5
     - name: PHP 7.1
       env:
         - PHP_VERSION=7.1
+        - PHPUNIT_VERSION=^6.5
+    - name: PHP 7.1
+      env:
+        - PHP_VERSION=7.1
+        - PHPUNIT_VERSION=^7.5
     - name: PHP 7.2
       env:
         - PHP_VERSION=7.2
+        - PHPUNIT_VERSION=^6.5
+    - name: PHP 7.2
+      env:
+        - PHP_VERSION=7.2
+        - PHPUNIT_VERSION=^7.5
+    - name: PHP 7.2
+      env:
+        - PHP_VERSION=7.2
+        - PHPUNIT_VERSION=^8.5
     - name: PHP 7.3
       env:
         - PHP_VERSION=7.3
+        - PHPUNIT_VERSION=^6.5
+    - name: PHP 7.3
+      env:
+        - PHP_VERSION=7.3
+        - PHPUNIT_VERSION=^7.5
+    - name: PHP 7.3
+      env:
+        - PHP_VERSION=7.3
+        - PHPUNIT_VERSION=^8.5
     - name: PHP 7.4
       env:
         - PHP_VERSION=7.4
+        - PHPUNIT_VERSION=^6.5
+    - name: PHP 7.4
+      env:
+        - PHP_VERSION=7.4
+        - PHPUNIT_VERSION=^7.5
+    - name: PHP 7.4
+      env:
+        - PHP_VERSION=7.4
+        - PHPUNIT_VERSION=^8.5
 
 before_install:
   - travis_retry docker pull registry.gitlab.com/grahamcampbell/php:$PHP_VERSION
