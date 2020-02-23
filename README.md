@@ -11,7 +11,7 @@
 
 ## Installation
 
-Alt Three TestBench provides some testing traits for Laravel apps. This version requires [PHP](https://php.net) 7.1-7.4, and supports [PHPUnit](https://phpunit.de/) 6-9 and Laravel 5.5-7. Simply require the package using [Composer](https://getcomposer.org):
+Alt Three TestBench provides some testing traits for Laravel apps. This version requires [PHP](https://php.net) 7.0-7.4, and supports [PHPUnit](https://phpunit.de/) 6-9 and Laravel 5.5-7. Simply require the package using [Composer](https://getcomposer.org):
 
 ```bash
 $ composer require alt-three/testbench --dev
