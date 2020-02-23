@@ -25,7 +25,8 @@ use ReflectionProperty;
  */
 trait AnemicTrait
 {
-    use ExpectsTrait, ValidationTrait;
+    use ExpectsTrait;
+    use ValidationTrait;
 
     abstract protected function getObjectAndParams();
 

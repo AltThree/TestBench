@@ -24,7 +24,8 @@ use ReflectionClass;
  */
 trait ServiceProviderTrait
 {
-    use LaravelTrait, ProviderTrait;
+    use LaravelTrait;
+    use ProviderTrait;
 
     protected function getServiceProviderClass($app)
     {

@@ -24,7 +24,8 @@ use ReflectionClass;
  */
 trait EventServiceProviderTrait
 {
-    use InternalTypeTrait, ServiceProviderTrait;
+    use InternalTypeTrait;
+    use ServiceProviderTrait;
 
     public function testIsAnEventServiceProvider()
     {
