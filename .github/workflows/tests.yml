@@ -12,12 +12,12 @@ jobs:
     strategy:
       matrix:
         php: ['7.0', '7.1', '7.2', '7.3', '7.4', '8.0']
-        phpunit: ['6.5', '7.5', '8.0', '8.5', '9.0', '9.3']
+        phpunit: ['6.5', '7.5', '8.4', '8.5', '9.0', '9.3']
         exclude:
           - php: '7.0'
             phpunit: '7.5'
           - php: '7.0'
-            phpunit: '8.0'
+            phpunit: '8.4'
           - php: '7.0'
             phpunit: '8.5'
           - php: '7.0'
@@ -25,7 +25,7 @@ jobs:
           - php: '7.0'
             phpunit: '9.3'
           - php: '7.1'
-            phpunit: '8.0'
+            phpunit: '8.4'
           - php: '7.1'
             phpunit: '8.5'
           - php: '7.1'
