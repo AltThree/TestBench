@@ -10,12 +10,12 @@
         }
     ],
     "require": {
-        "php": "^7.0",
+        "php": "^7.0 || ^8.0",
         "graham-campbell/testbench-core": "^3.1"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^2.4|^3.0",
-        "phpunit/phpunit": "^6.5|^7.5|^8.4|^9.0"
+        "graham-campbell/analyzer": "^2.4 || ^3.0",
+        "phpunit/phpunit": "^6.5 || ^7.5 || ^8.4 || ^9.0"
     },
     "suggest": {
         "laravel/framework": "Enables the use of most traits."
