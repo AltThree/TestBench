@@ -36,6 +36,14 @@ trait EventTrait
         return true;
     }
 
+    protected function getEventListeners($provider)
+    {
+        $property = (new ReflectionClass($provider))->getProperty('listen');
+        $property->setAccessible(true);
+
+        return $property->getValue($provider);
+    }
+
     protected function getEventServiceProvider()
     {
         $split = explode('\\', (new ReflectionClass($this))->getName());
@@ -59,12 +67,8 @@ trait EventTrait
         $this->setFrameworkExpectations();
 
         $provider = $this->getEventServiceProvider();
-
-        $property = (new ReflectionClass($provider))->getProperty('listen');
-        $property->setAccessible(true);
-
         $class = get_class($this->getObjectAndParams()['object']);
-        $mappings = $property->getValue(new $provider($this->app));
+        $mappings = $this->getEventListeners(new $provider($this->app));
 
         $this->assertTrue(isset($mappings[$class]), "Expected '{$class}' to exists as a key in the event mappings.");
 
