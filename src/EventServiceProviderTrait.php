@@ -92,12 +92,14 @@ trait EventServiceProviderTrait
     {
         $class = $this->getServiceProviderClass($this->app);
 
-        $reflection = new ReflectionClass($class);
+        return $this->getEventListeners(new $class($this->app));
+    }
 
-        $property = $reflection->getProperty('listen');
-
+    protected function getEventListeners($provider)
+    {
+        $property = (new ReflectionClass($provider))->getProperty('listen');
         $property->setAccessible(true);
 
-        return $property->getValue(new $class($this->app));
+        return $property->getValue($provider);
     }
 }
