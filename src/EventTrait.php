@@ -19,6 +19,7 @@ use ReflectionClass;
  * This is the event trait.
  *
  * @author Graham Campbell <graham@alt-three.com>
+ * @author James Brooks <james@alt-three.com>
  */
 trait EventTrait
 {
@@ -48,7 +49,7 @@ trait EventTrait
     {
         $split = explode('\\', (new ReflectionClass($this))->getName());
 
-        return "{$split[0]}\\{$split[2]}\\Foundation\\Providers\\EventServiceProvider";
+        return "{$split[0]}\\{$split[2]}\\Providers\\EventServiceProvider";
     }
 
     public function testEventImplementsTheCorrectInterfaces()
